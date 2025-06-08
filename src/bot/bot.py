@@ -3,7 +3,6 @@ import logging
 from aiogram import Bot, Dispatcher
 from aiogram.enums import ParseMode
 from aiogram.types import Message
-from aiogram.runner import run_polling
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -18,4 +17,4 @@ async def echo_handler(message: Message):
 
 async def bot_entrypoint():
     logging.basicConfig(level=logging.INFO)
-    await run_polling(bot=bot, dispatcher=dp)
+    await dp.start_polling(bot)
